@@ -477,6 +477,18 @@ ReactDOMServer is the server for handeling
 
 in React inner HTML can be replaced by {} and calling a react component to fill that space with th eElement.
 
+```
+let htmlElelemt ={
+   _html: "<div> Dangerously set</div> "
+}
+
+render(){
+
+   return <>
+      <div dangerouslySetInnerHTML={htmlElelemt}></div>
+   </>
+}
+```
 
 #### 61.  How to use styles in React?
 
@@ -919,4 +931,256 @@ componentDidMount() {
 
 #### 128. What are render props?
 
-Render Props is a simple technique for sharing code between components using a prop whose value is a function. The below component uses render prop which returns a  React element.
+Render Props is a simple technique for sharing code between components using a prop whose value is a function. 
+The below component uses render prop which returns a  React element.
+
+```
+<myComponent render={(parameter)=>{console.log("")}}>
+```
+
+## React Router
+
+#### 129. What is React Router?
+
+React router  is a routing library available on top of react framework which alows us to define the routing logic 
+
+
+#### 130. How React Router is different from history library?
+
+It is a wrapper around history library,  But React Router does the extra job of:
+
+- mapping paths to components,
+
+- managing route state,
+
+- rendering different views based on the URL.
+
+
+#### 131 What are the <Router> components of React Router v4?
+
+
+
+## React Internationalization
+
+
+## React Testing
+
+## React Redux
+
+
+## React Native
+
+## React supported libraries & Integration
+
+## Miscellaneous
+
+#### 206.[TODO] What are the main features of Reselect library?
+
+#### 207.[TODO] Give an example of Reselect usage?
+
+#### 209.Does the statics object work with ES6 classes in React?
+
+yes static objects can be created to declare  a property on the class itself , so we donot require an instance of class to access it.
+
+
+#### 210.  Can Redux only be used with React?
+
+Redux is a state management paridgim and it is  not limited to any library , hence it can be implements with other programing languages also if followed the similar structure of container, slice , selector, action and dispatcher.
+
+#### 211. Do you need to have a particular build tool to use Redux?
+
+No Redux is a plain Javascript library so its not required.
+
+#### 212.[TODO] How Redux Form initialValues get updated from state?
+
+initial values can be either defined at the time of creating store , wile defining slices.
+For updatingth state we can define reducer functions which can be handeled on the based of a dispatched action.
+
+#### 213.  How React PropTypes allow different types for one prop?
+
+We can use proptype.any while defining
+
+```
+age: PropTypes.oneOfType([PropTypes.string, PropTypes, number])
+```
+
+#### 214.  Can I import an SVG file as react component?
+
+YEs If we pass it in render
+
+```
+       import { ReactComponent as Logo } from './logo.svg'
+```
+
+#### 215. [TODO] Why are inline ref callbacks or functions not recommended?
+
+because 
+
+
+#### 216. What is render hijacking in react?
+
+render hijack means k when you decide that whats gonna renderd by component from outside or an HOC.
+
+
+#### 217. [TODO]What are HOC factory implementations?
+
+
+#### 218. How to pass numbers to React component?
+
+```
+<div num={34}></div>
+```
+
+#### 219.[TODO]
+
+#### 220.[TODO] What is the purpose of registerServiceWorker in React?
+
+#### 221. What is React memo function?
+
+React memo function is one of the optimization techniques for the react web app.
+Memo function is a higher order function which wraps arround a component and prevents the rerendering of the component untill and unless any props or state inside child has changed.
+- performs a shallow comparison of its props 
+
+#### 222. What is React lazy function?
+
+Lazy function is used to load or import a route asynchronously only when it is requested by user i.e when user visits that route
+- not to forget suspense for loading
+```
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+```
+
+#### 223. How to prevent unnecessary updates using setState?
+
+- we can use the functional approach where we can check if prev state is equal to current valus then we can abort update.
+- we can batch multiple updates in single setstate
+- use react memo to avoid faltu rendering
+
+#### 224. How do you render Array, Strings and Numbers in React 16 Version?
+
+we can render arrys using a map method in between curly braces
+we can directly remder string and number using there value given by useState hook
+- another way is to return mixed array 
+```
+function MixedArrayExample() {
+  const items = ['Apple', 'Banana', 'Orange'];
+
+  return [
+    <h1 key="header">Fruits List:</h1>,
+    ...items.map((item, index) => <li key={index}>{item}</li>),
+    'End of list',
+    42,  // A number rendered directly
+  ];
+}
+```
+
+#### 225 [todo]How to use class field declarations syntax in React classes?
+
+#### 226. What are hooks?
+
+Hooks in react are functions with superpowers of react.
+Hooks contain a functionality which can be seperated as a service 
+hooks have anomenclature of useHookname
+
+#### 227. What rules need to be followed for hooks?
+- naming convention should be starting from use
+- it should return or it can be empty 
+-  call hooks from toplevel only
+- do not call hooks from javascript
+
+
+#### 228. How to ensure hooks followed the rules in your project?
+
+use eslint plugin for hooks
+
+#### 229.[TODO] What are the differences between Flux and Redux?
+
+flux is a programing paridigm on whicg redux works
+
+
+#### 230 [TODO] What are the benefits of React Router V4?
+
+#### 231. Can you describe about componentDidCatch lifecycle method signature?
+
+ComponentDidCatch lifecycle method is part of the error lifecycle of a react component.
+It is used to create error boundries across the class components by wrapping class components as a children prop inside a error boundry component.
+This automatically detects error and informs us to take action accordingly.
+```
+componentDidCatch(error, info)
+
+```
+
+#### 232. In which scenarios error boundaries do not catch errors?
+
+- when error is in itself
+- when the code is async
+- when error inside event handelers
+
+
+#### 233. Why do you not need error boundaries for event handlers?
+
+because eventhandlers does not affect first render / mounting .
+so they can be managed later by try/catch block.
+
+#### 234. [TODO]What is the difference between try catch block and error boundaries?
+
+
+#### 235. What is the behavior of uncaught errors in react 16?
+
+whole componnent will be unmounted. basically it follows Atomicity
+
+
+#### 236. What is the proper placement for error boundaries?
+
+- on top of the parent component screen
+- or wrap every screen individually
+
+
+#### 237. What is the benefit of component stack trace from error boundary?
+
+used to track path of the error causing component
+
+#### 238. What is the required method to be defined for a class component?
+
+renderis required
+
+#### 239. What are the possible return types of render method?
+
+- it can return JSX
+- it can return Array of elements
+- portals
+- string 
+
+#### 240. What is the main purpose of constructor?
+
+main purpose is to initialise the  props provided by parent inside  this .props which is present inside parent class
+- also defines any local state if required.
+
+#### 241. Is it mandatory to define constructor for React component?
+
+No if not needed then do not define constructor.
+
+#### 242. What are default props?
+
+default props are the values if no props are passed from parent .
+
+```
+MyButton.defaultProps = {   
+   color: 'red' 
+   };
+
+```
+
+#### 243. Why should not call setState in componentWillUnmount?
+
+the setState method triggers rerender of the component , while componentWillUnmount is called just before unMount so there is a possibility that setstate will run but component will be unmounted till then.
+
+#### 244. [TODO] What is the purpose of getDerivedStateFromError?
+
+#### 245. [TODO]What is the methods order when component re-rendered?
+
+
+- getDerivedStateFromProps
+- shouldComponentUpdate
+- render
+- getSnapshotBeforeUpdate
+- componentDidUpdate

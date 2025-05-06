@@ -1074,6 +1074,8 @@ function MixedArrayExample() {
 ```
 
 #### 225 [todo]How to use class field declarations syntax in React classes?
+New way of defiing state and props in class component without using constructor.
+
 
 #### 226. What are hooks?
 
@@ -1184,3 +1186,62 @@ the setState method triggers rerender of the component , while componentWillUnmo
 - render
 - getSnapshotBeforeUpdate
 - componentDidUpdate
+
+#### 246.[TODO] What are the methods invoked during error handling?
+
+   - static getDerivedStateFromError()
+   - componentDidCatch()
+
+#### 247.[TODO] What is the purpose of displayName class property?
+
+#### 248. What is the browser support for react applications?
+
+React supports most of the latest browsers and also a lot of legecy browsers, as the code that we write gets transpiled into browser specific JS by bable.
+we can also tweek the browser support in packaaje.json file
+
+#### 249. [TODO]What is the purpose of unmountComponentAtNode method?
+
+Used to unmount a component 
+```
+ReactDOM.unmountComponentAtNode(container)
+```
+
+#### 250. What is code-splitting?
+code splitting is a technique through which we can reduce the load of final package , also by loading the components only when required.
+
+```
+handleClick = () => {     
+   import('./moduleA')       
+   .then(({ moduleA }) => {         
+      // Use moduleA       
+      })       
+      .catch(err => {         
+         // Handle failure       
+         });   
+   };
+```
+
+
+#### 251. What is the benefit of strict mode?
+
+Strict mode in React makes sure that the setstate is running teice 
+- warning about legacy classes
+- finds all deprecated code
+- identifys warning
+
+#### 252. What are Keyed Fragments?
+
+
+#### 253. Does React support all HTML attributes?
+
+yes from React 16
+
+#### 254. What are the limitations with HOCs?
+
+- Don’t use HOCs inside the render method
+- Static methods must be copied over:
+- Refs aren’t passed through
+
+
+#### 332. What is the difference between useState and useRef hook?
+
